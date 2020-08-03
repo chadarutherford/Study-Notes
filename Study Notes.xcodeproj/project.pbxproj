@@ -12,11 +12,14 @@
 		634AA0AC24BE2C5200FDD1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0AB24BE2C5200FDD1A6 /* SceneDelegate.swift */; };
 		634AA0B324BE2C5200FDD1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634AA0B224BE2C5200FDD1A6 /* Assets.xcassets */; };
 		634AA0B624BE2C5200FDD1A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634AA0B424BE2C5200FDD1A6 /* LaunchScreen.storyboard */; };
-		634AA0C024BE2CFC00FDD1A6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0BF24BE2CFC00FDD1A6 /* LoginViewController.swift */; };
+		634AA0C024BE2CFC00FDD1A6 /* StudyModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0BF24BE2CFC00FDD1A6 /* StudyModeViewController.swift */; };
 		634AA0C624BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C424BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld */; };
 		634AA0CA24BE305100FDD1A6 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C924BE305100FDD1A6 /* NoteController.swift */; };
 		634AA0CC24BE307C00FDD1A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */; };
-		634AA0CE24BE31AE00FDD1A6 /* Note+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CD24BE31AE00FDD1A6 /* Note+Convenience.swift */; };
+		634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */; };
+		63D3DEE724D8554D002088BC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEE624D8554D002088BC /* CardView.swift */; };
+		63D3DEE924D8A037002088BC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */; };
+		63D3DEEB24D8A21C002088BC /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEEA24D8A21C002088BC /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +30,14 @@
 		634AA0B224BE2C5200FDD1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		634AA0B524BE2C5200FDD1A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		634AA0B724BE2C5200FDD1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		634AA0BF24BE2CFC00FDD1A6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		634AA0BF24BE2CFC00FDD1A6 /* StudyModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyModeViewController.swift; sourceTree = "<group>"; };
 		634AA0C524BE2D7400FDD1A6 /* StudyNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudyNotes.xcdatamodel; sourceTree = "<group>"; };
 		634AA0C924BE305100FDD1A6 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		634AA0CD24BE31AE00FDD1A6 /* Note+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Convenience.swift"; sourceTree = "<group>"; };
+		634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManaged+Convenience.swift"; sourceTree = "<group>"; };
+		63D3DEE624D8554D002088BC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		63D3DEEA24D8A21C002088BC /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		634AA0C124BE2D5100FDD1A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63D3DEE524D8553F002088BC /* Custom Views */,
 				634AA0C224BE2D5600FDD1A6 /* Storyboards */,
 			);
 			path = View;
@@ -113,7 +120,7 @@
 			children = (
 				634AA0C424BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld */,
 				634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */,
-				634AA0CD24BE31AE00FDD1A6 /* Note+Convenience.swift */,
+				634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,10 +136,20 @@
 		634AA0C824BE304100FDD1A6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				634AA0BF24BE2CFC00FDD1A6 /* LoginViewController.swift */,
+				634AA0BF24BE2CFC00FDD1A6 /* StudyModeViewController.swift */,
 				63061EEB24BF65A10020AF0A /* AddCardViewController.swift */,
+				63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		63D3DEE524D8553F002088BC /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				63D3DEE624D8554D002088BC /* CardView.swift */,
+				63D3DEEA24D8A21C002088BC /* CategoryCell.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,13 +222,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				63061EEC24BF65A10020AF0A /* AddCardViewController.swift in Sources */,
-				634AA0C024BE2CFC00FDD1A6 /* LoginViewController.swift in Sources */,
-				634AA0CE24BE31AE00FDD1A6 /* Note+Convenience.swift in Sources */,
+				63D3DEE724D8554D002088BC /* CardView.swift in Sources */,
+				634AA0C024BE2CFC00FDD1A6 /* StudyModeViewController.swift in Sources */,
+				634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */,
 				634AA0C624BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld in Sources */,
 				634AA0AA24BE2C5200FDD1A6 /* AppDelegate.swift in Sources */,
 				634AA0CC24BE307C00FDD1A6 /* CoreDataStack.swift in Sources */,
+				63D3DEE924D8A037002088BC /* CategoryTableViewController.swift in Sources */,
 				634AA0AC24BE2C5200FDD1A6 /* SceneDelegate.swift in Sources */,
 				634AA0CA24BE305100FDD1A6 /* NoteController.swift in Sources */,
+				63D3DEEB24D8A21C002088BC /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
