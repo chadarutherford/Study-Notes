@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  StudyModeViewController.swift
 //  Study Notes
 //
 //  Created by Chad Rutherford on 7/14/20.
