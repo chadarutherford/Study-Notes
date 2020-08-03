@@ -31,6 +31,7 @@ class CategoryTableViewController: UITableViewController {
 	
 	private func setupTableView() {
 		title = "Categories"
+		view.backgroundColor = .systemBackground
 		tableView.backgroundColor = .clear
 		navigationController?.navigationBar.prefersLargeTitles = true
 		tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseID)

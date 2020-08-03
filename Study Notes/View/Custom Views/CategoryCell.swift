@@ -19,6 +19,12 @@ class CategoryCell: UITableViewCell {
 		return label
 	}()
 	
+	let containerView: UIView = {
+		let containerView = UIView()
+		containerView.translatesAutoresizingMaskIntoConstraints = false
+		return containerView
+	}()
+	
 	var gradient = CAGradientLayer()
 	var category: Category? {
 		didSet {
@@ -38,24 +44,32 @@ class CategoryCell: UITableViewCell {
 	}
 	
 	private func configureUI() {
-		contentView.addSubview(label)
+		contentView.addSubview(containerView)
+		containerView.addSubview(label)
 		NSLayoutConstraint.activate([
-			label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-			label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
+			containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+			containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+			containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+			containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+			
+			label.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 24),
+			label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8)
 		])
 		gradient.colors = [
 			UIColor.systemTeal.cgColor,
 			UIColor.systemBlue.cgColor
 		]
 		gradient.locations = [0.0, 1.0]
-		contentView.layer.insertSublayer(gradient, at: 0)
-		contentView.layer.cornerRadius = 10
-		contentView.clipsToBounds = true
+		containerView.layer.insertSublayer(gradient, at: 0)
 	}
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
-		gradient.frame = contentView.frame
+		
+		gradient.frame = containerView.frame
+		containerView.layer.cornerRadius = 10
+		containerView.clipsToBounds = true
+		gradient.masksToBounds = true
 	}
 	
 	private func updateViews() {
