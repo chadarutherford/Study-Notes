@@ -10,7 +10,13 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
 	static let reuseID = String(describing: self)
-	
+
+    let wrapper: UIView = {
+        let view = GradientView()
+        view.setupGradient(startColor: .systemTeal, endColor: .systemBlue, startPoint: .init(x: 0, y: 0), endPoint: .init(x: 0, y: 1))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 	let label: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +25,6 @@ class CategoryCell: UITableViewCell {
 		return label
 	}()
 	
-	var gradient = CAGradientLayer()
 	var category: Category? {
 		didSet {
 			updateViews()
@@ -38,28 +43,52 @@ class CategoryCell: UITableViewCell {
 	}
 	
 	private func configureUI() {
-		contentView.addSubview(label)
+		contentView.addSubview(wrapper)
+        wrapper.addSubview(label)
 		NSLayoutConstraint.activate([
-			label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-			label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
+            wrapper.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            wrapper.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            wrapper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            wrapper.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+			label.topAnchor.constraint(equalTo: wrapper.topAnchor, constant: 24),
+			label.leadingAnchor.constraint(equalTo: wrapper.leadingAnchor, constant: 8)
 		])
-		gradient.colors = [
-			UIColor.systemTeal.cgColor,
-			UIColor.systemBlue.cgColor
-		]
-		gradient.locations = [0.0, 1.0]
-		contentView.layer.insertSublayer(gradient, at: 0)
-		contentView.layer.cornerRadius = 10
-		contentView.clipsToBounds = true
-	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		gradient.frame = contentView.frame
+		wrapper.layer.cornerRadius = 10
+		wrapper.clipsToBounds = true
 	}
 	
 	private func updateViews() {
 		guard let category = category else { return }
 		label.text = category.title
 	}
+}
+
+class GradientView: UIView {
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupGradient()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupGradient()
+    }
+
+    var gradientLayer: CAGradientLayer {
+        return layer as! CAGradientLayer
+    }
+
+    func setupGradient(startColor: UIColor = .white,
+                       endColor: UIColor = .black,
+                       startPoint: CGPoint = CGPoint(x: 0.5, y: 0.0),
+                       endPoint: CGPoint = CGPoint(x: 0.5, y: 1.0)) {
+        backgroundColor = .clear
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+    }
 }
