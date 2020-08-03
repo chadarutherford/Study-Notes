@@ -8,6 +8,14 @@
 import CoreData
 import Foundation
 
+extension Category {
+	@discardableResult convenience init?(title: String, notes: NSOrderedSet, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+		self.init(context: context)
+		self.title = title
+		self.notes = notes
+	}
+}
+
 extension Note {
 	@discardableResult convenience init?(answer: String,
 										 clues: NSOrderedSet,
