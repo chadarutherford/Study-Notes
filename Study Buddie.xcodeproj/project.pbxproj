@@ -13,7 +13,7 @@
 		634AA0B324BE2C5200FDD1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634AA0B224BE2C5200FDD1A6 /* Assets.xcassets */; };
 		634AA0B624BE2C5200FDD1A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634AA0B424BE2C5200FDD1A6 /* LaunchScreen.storyboard */; };
 		634AA0C024BE2CFC00FDD1A6 /* StudyModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0BF24BE2CFC00FDD1A6 /* StudyModeViewController.swift */; };
-		634AA0C624BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C424BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld */; };
+		634AA0C624BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C424BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld */; };
 		634AA0CA24BE305100FDD1A6 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C924BE305100FDD1A6 /* NoteController.swift */; };
 		634AA0CC24BE307C00FDD1A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */; };
 		634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */; };
@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		63061EEB24BF65A10020AF0A /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
-		634AA0A624BE2C5200FDD1A6 /* Study Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		634AA0A624BE2C5200FDD1A6 /* Study Buddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Buddie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		634AA0A924BE2C5200FDD1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634AA0AB24BE2C5200FDD1A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		634AA0B224BE2C5200FDD1A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		634AA09D24BE2C5200FDD1A6 = {
 			isa = PBXGroup;
 			children = (
-				634AA0A824BE2C5200FDD1A6 /* Study Notes */,
+				634AA0A824BE2C5200FDD1A6 /* Study Buddie */,
 				634AA0A724BE2C5200FDD1A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,12 +68,12 @@
 		634AA0A724BE2C5200FDD1A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				634AA0A624BE2C5200FDD1A6 /* Study Notes.app */,
+				634AA0A624BE2C5200FDD1A6 /* Study Buddie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		634AA0A824BE2C5200FDD1A6 /* Study Notes */ = {
+		634AA0A824BE2C5200FDD1A6 /* Study Buddie */ = {
 			isa = PBXGroup;
 			children = (
 				634AA0C324BE2D6100FDD1A6 /* Model */,
@@ -81,7 +81,7 @@
 				634AA0BE24BE2CED00FDD1A6 /* Controller */,
 				634AA0BD24BE2C6B00FDD1A6 /* Support */,
 			);
-			path = "Study Notes";
+			path = "Study Buddie";
 			sourceTree = "<group>";
 		};
 		634AA0BD24BE2C6B00FDD1A6 /* Support */ = {
@@ -124,7 +124,7 @@
 		634AA0C324BE2D6100FDD1A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				634AA0C424BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld */,
+				634AA0C424BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld */,
 				634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */,
 				634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */,
 			);
@@ -164,9 +164,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		634AA0A524BE2C5200FDD1A6 /* Study Notes */ = {
+		634AA0A524BE2C5200FDD1A6 /* Study Buddie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 634AA0BA24BE2C5200FDD1A6 /* Build configuration list for PBXNativeTarget "Study Notes" */;
+			buildConfigurationList = 634AA0BA24BE2C5200FDD1A6 /* Build configuration list for PBXNativeTarget "Study Buddie" */;
 			buildPhases = (
 				634AA0A224BE2C5200FDD1A6 /* Sources */,
 				634AA0A324BE2C5200FDD1A6 /* Frameworks */,
@@ -176,9 +176,9 @@
 			);
 			dependencies = (
 			);
-			name = "Study Notes";
+			name = "Study Buddie";
 			productName = "Study Notes";
-			productReference = 634AA0A624BE2C5200FDD1A6 /* Study Notes.app */;
+			productReference = 634AA0A624BE2C5200FDD1A6 /* Study Buddie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -195,7 +195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 634AA0A124BE2C5200FDD1A6 /* Build configuration list for PBXProject "Study Notes" */;
+			buildConfigurationList = 634AA0A124BE2C5200FDD1A6 /* Build configuration list for PBXProject "Study Buddie" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -208,7 +208,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				634AA0A524BE2C5200FDD1A6 /* Study Notes */,
+				634AA0A524BE2C5200FDD1A6 /* Study Buddie */,
 			);
 		};
 /* End PBXProject section */
@@ -236,7 +236,7 @@
 				634AA0C024BE2CFC00FDD1A6 /* StudyModeViewController.swift in Sources */,
 				639BEA9F24D9BC2A00168DC0 /* TextViewPopoverViewController.swift in Sources */,
 				634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */,
-				634AA0C624BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld in Sources */,
+				634AA0C624BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld in Sources */,
 				634AA0AA24BE2C5200FDD1A6 /* AppDelegate.swift in Sources */,
 				634AA0CC24BE307C00FDD1A6 /* CoreDataStack.swift in Sources */,
 				63D3DEE924D8A037002088BC /* CategoryTableViewController.swift in Sources */,
@@ -384,12 +384,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7DFWNNEL3;
-				INFOPLIST_FILE = "Study Notes/Support/Info.plist";
+				INFOPLIST_FILE = "Study Buddie/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.chadarutherford.Study-Notes";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.chadarutherford.StudyBuddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,12 +403,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7DFWNNEL3;
-				INFOPLIST_FILE = "Study Notes/Support/Info.plist";
+				INFOPLIST_FILE = "Study Buddie/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.chadarutherford.Study-Notes";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.chadarutherford.StudyBuddie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,7 +418,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		634AA0A124BE2C5200FDD1A6 /* Build configuration list for PBXProject "Study Notes" */ = {
+		634AA0A124BE2C5200FDD1A6 /* Build configuration list for PBXProject "Study Buddie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				634AA0B824BE2C5200FDD1A6 /* Debug */,
@@ -427,7 +427,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		634AA0BA24BE2C5200FDD1A6 /* Build configuration list for PBXNativeTarget "Study Notes" */ = {
+		634AA0BA24BE2C5200FDD1A6 /* Build configuration list for PBXNativeTarget "Study Buddie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				634AA0BB24BE2C5200FDD1A6 /* Debug */,
@@ -439,13 +439,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		634AA0C424BE2D7400FDD1A6 /* StudyNotes.xcdatamodeld */ = {
+		634AA0C424BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				634AA0C524BE2D7400FDD1A6 /* StudyNotes.xcdatamodel */,
 			);
 			currentVersion = 634AA0C524BE2D7400FDD1A6 /* StudyNotes.xcdatamodel */;
-			path = StudyNotes.xcdatamodeld;
+			path = StudyBuddie.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

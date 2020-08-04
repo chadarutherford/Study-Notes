@@ -37,6 +37,22 @@ class TextViewPopoverViewController: UIViewController {
 		return textView
 	}()
 	
+	let cancelButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		let attributes = [
+			NSAttributedString.Key.foregroundColor : UIColor.label,
+			NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .semibold)
+		]
+		button.layer.borderColor = UIColor.label.cgColor
+		button.layer.borderWidth = 2
+		button.layer.cornerRadius = 10
+		button.layer.masksToBounds = true
+		button.setAttributedTitle(NSAttributedString(string: "Cancel", attributes: attributes), for: .normal)
+		button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+		return button
+	}()
+	
 	let saveButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +78,7 @@ class TextViewPopoverViewController: UIViewController {
 		view.addSubview(containerView)
 		containerView.addSubview(textView)
 		containerView.addSubview(saveButton)
+		containerView.addSubview(cancelButton)
 		NSLayoutConstraint.activate([
 			containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
 			containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -73,11 +90,20 @@ class TextViewPopoverViewController: UIViewController {
 			textView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
 			textView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -8),
 			
+			saveButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -40),
+			saveButton.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 40),
 			saveButton.heightAnchor.constraint(equalToConstant: 40),
-			saveButton.widthAnchor.constraint(equalTo: saveButton.heightAnchor, multiplier: 4),
-			saveButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-			saveButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+			saveButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
+			
+			cancelButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 40),
+			cancelButton.trailingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -40),
+			cancelButton.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 8),
+			cancelButton.heightAnchor.constraint(equalToConstant: 40)
 		])
+	}
+	
+	@objc private func cancelButtonTapped() {
+		dismiss(animated: true)
 	}
 	
 	@objc private func saveButtonTapped() {
