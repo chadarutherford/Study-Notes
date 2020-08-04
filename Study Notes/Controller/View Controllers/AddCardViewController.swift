@@ -207,3 +207,10 @@ class AddCardViewController: UIViewController {
 		}
 	}
 }
+
+extension AddCardViewController: UITextFieldDelegate {
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+		// TODO: Show popover text view
+		return true
+	}
+}
