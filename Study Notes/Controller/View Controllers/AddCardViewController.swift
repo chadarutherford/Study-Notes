@@ -109,6 +109,12 @@ class AddCardViewController: UIViewController {
 	}
 	
 	private func configureUI() {
+		clue1TextField.delegate = self
+		clue2TextField.delegate = self
+		clue3TextField.delegate = self
+		clue4TextField.delegate = self
+		clue5TextField.delegate = self
+		
 		title = "Add Card"
 		let gradient = CAGradientLayer()
 		gradient.frame = view.bounds
@@ -210,7 +216,19 @@ class AddCardViewController: UIViewController {
 
 extension AddCardViewController: UITextFieldDelegate {
 	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-		// TODO: Show popover text view
+		textField.resignFirstResponder()
+		let textPopoverVC = TextViewPopoverViewController(nibName: nil, bundle: nil)
+		textPopoverVC.textField = textField
+		textPopoverVC.delegate = self
+		textPopoverVC.modalPresentationStyle = .overCurrentContext
+		textPopoverVC.modalTransitionStyle = .crossDissolve
+		present(textPopoverVC, animated: true)
 		return true
+	}
+}
+
+extension AddCardViewController: TextViewPopoverDelegate {
+	func textViewDidSave(text: String, into textField: UITextField) {
+		textField.text = text
 	}
 }
