@@ -5,7 +5,6 @@
 //  Created by Chad Rutherford on 8/3/20.
 //
 
-import SwiftUI
 import UIKit
 
 class AddCategoryViewController: UIViewController {
@@ -114,21 +113,5 @@ class AddCategoryViewController: UIViewController {
 		guard let title = categoryTextField.text, !title.isEmpty else { return }
 		Category(title: title, notes: [])
 		try! CoreDataStack.shared.save()
-	}
-}
-
-struct AddCategoryPreview: PreviewProvider {
-	static var previews: some View {
-		ContainerView().edgesIgnoringSafeArea(.all)
-	}
-	
-	struct ContainerView: UIViewControllerRepresentable {
-		func updateUIViewController(_ uiViewController: AddCategoryPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<AddCategoryPreview.ContainerView>) {
-			
-		}
-		
-		func makeUIViewController(context: UIViewControllerRepresentableContext<AddCategoryPreview.ContainerView>) -> UIViewController {
-			return AddCategoryViewController()
-		}
 	}
 }
