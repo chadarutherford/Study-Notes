@@ -5,7 +5,6 @@
 //  Created by Chad Rutherford on 7/15/20.
 //
 
-import SwiftUI
 import UIKit
 
 class AddCardViewController: UIViewController {
@@ -95,6 +94,7 @@ class AddCardViewController: UIViewController {
 		return button
 	}()
 	
+	var category: Category?
 	var note: Note?
 	var clues = [Clue]()
 	
@@ -109,7 +109,7 @@ class AddCardViewController: UIViewController {
 	}
 	
 	private func configureUI() {
-		title = note != nil ? "Edit Card" : "Add Card"
+		title = "Add Card"
 		let gradient = CAGradientLayer()
 		gradient.frame = view.bounds
 		gradient.colors = [UIColor.systemTeal.cgColor, UIColor.systemBlue.cgColor]
@@ -192,7 +192,11 @@ class AddCardViewController: UIViewController {
 		   !clue5.isEmpty {
 			clues.append(Clue(text: clue5)!)
 		}
-		Note(answer: answer, clues: NSOrderedSet(array: clues))
+		guard let category = category else { return }
+		let mutableNotes = category.notes?.mutableCopy() as! NSMutableOrderedSet
+		let note = Note(answer: answer, clues: NSOrderedSet(array: clues))!
+		mutableNotes.add(note)
+		category.notes = (mutableNotes.copy() as! NSOrderedSet)
 		do {
 			try CoreDataStack.shared.save()
 			navigationController?.popViewController(animated: true)
@@ -200,22 +204,6 @@ class AddCardViewController: UIViewController {
 			let ac = UIAlertController(title: "Error", message: "There was an error saving your note card", preferredStyle: .alert)
 			ac.addAction(UIAlertAction(title: "OK", style: .default))
 			present(ac, animated: true)
-		}
-	}
-}
-
-struct AddCardPreview: PreviewProvider {
-	static var previews: some View {
-		ContainerView().edgesIgnoringSafeArea(.all)
-	}
-	
-	struct ContainerView: UIViewControllerRepresentable {
-		func updateUIViewController(_ uiViewController: AddCardPreview.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<AddCardPreview.ContainerView>) {
-			
-		}
-		
-		func makeUIViewController(context: UIViewControllerRepresentableContext<AddCardPreview.ContainerView>) -> UIViewController {
-			return UINavigationController(rootViewController: AddCardViewController())
 		}
 	}
 }
