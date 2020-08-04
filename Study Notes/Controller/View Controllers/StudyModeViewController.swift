@@ -21,6 +21,12 @@ class StudyModeViewController: UIViewController {
 		return view
 	}()
 	
+	let emptyView: EmptyView = {
+		let view = EmptyView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+	
 	let nextButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -120,8 +126,22 @@ class StudyModeViewController: UIViewController {
 	}
 	
 	private func updateViews() {
+		if view.subviews.contains(emptyView) {
+			emptyView.removeFromSuperview()
+		}
 		guard let results = results,
-			  index <= results.count - 1 else { return }
+			  index <= results.count - 1 else {
+			cardView.removeFromSuperview()
+			view.addSubview(emptyView)
+			NSLayoutConstraint.activate([
+				emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+				emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
+				emptyView.heightAnchor.constraint(equalToConstant: 160),
+				emptyView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+			])
+			return
+		}
+		configureUI()
 		cardView.answerLabel.text = results[index].answer
 		cardView.cluesStackView.isHidden = true
 		let clues = results[index].clues?.array as! [Clue]
@@ -169,6 +189,7 @@ class StudyModeViewController: UIViewController {
 	
 	@objc private func addCardTapped() {
 		let addCardVC = AddCardViewController(nibName: nil, bundle: nil)
+		addCardVC.category = category
 		self.navigationController?.pushViewController(addCardVC, animated: true)
 	}
 	
