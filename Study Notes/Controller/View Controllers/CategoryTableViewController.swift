@@ -26,7 +26,7 @@ class CategoryTableViewController: UITableViewController {
 //	let noteController = NoteController()
 	
 	override func viewDidLoad() {
-		setupTableView()
+		setupUI()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -34,14 +34,22 @@ class CategoryTableViewController: UITableViewController {
 		navigationController?.isNavigationBarHidden = false
 	}
 	
-	private func setupTableView() {
+	private func setupUI() {
 		title = "Categories"
 		view.backgroundColor = .systemBackground
-		tableView.backgroundColor = .clear
 		navigationController?.navigationBar.prefersLargeTitles = true
 		tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseID)
 		tableView.rowHeight = 70
 		tableView.separatorStyle = .none
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+		navigationController?.navigationBar.tintColor = .label
+	}
+	
+	@objc private func addButtonTapped() {
+		let addCategoryVC = AddCategoryViewController(nibName: nil, bundle: nil)
+		addCategoryVC.modalPresentationStyle = .overCurrentContext
+		addCategoryVC.modalTransitionStyle = .crossDissolve
+		present(addCategoryVC, animated: true)
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
