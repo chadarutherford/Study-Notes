@@ -46,11 +46,11 @@ class CategoryCell: UITableViewCell {
 		contentView.addSubview(wrapper)
         wrapper.addSubview(label)
 		NSLayoutConstraint.activate([
-            wrapper.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            wrapper.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            wrapper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            wrapper.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-			label.topAnchor.constraint(equalTo: wrapper.topAnchor, constant: 24),
+            wrapper.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            wrapper.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            wrapper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            wrapper.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+			label.topAnchor.constraint(equalTo: wrapper.topAnchor, constant: 16),
 			label.leadingAnchor.constraint(equalTo: wrapper.leadingAnchor, constant: 8)
 		])
 		wrapper.layer.cornerRadius = 10
