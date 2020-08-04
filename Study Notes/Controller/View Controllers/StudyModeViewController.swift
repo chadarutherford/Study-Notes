@@ -131,14 +131,16 @@ class StudyModeViewController: UIViewController {
 		}
 		guard let results = results,
 			  index <= results.count - 1 else {
-			cardView.removeFromSuperview()
-			view.addSubview(emptyView)
-			NSLayoutConstraint.activate([
-				emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
-				emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
-				emptyView.heightAnchor.constraint(equalToConstant: 160),
-				emptyView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-			])
+			if self.results?.count == 0 {
+				cardView.removeFromSuperview()
+				view.addSubview(emptyView)
+				NSLayoutConstraint.activate([
+					emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+					emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
+					emptyView.heightAnchor.constraint(equalToConstant: 160),
+					emptyView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+				])
+			}
 			return
 		}
 		configureUI()
