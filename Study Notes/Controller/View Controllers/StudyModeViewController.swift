@@ -33,6 +33,20 @@ class StudyModeViewController: UIViewController {
 		return button
 	}()
 	
+	let backButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		let attributes = [
+			NSAttributedString.Key.foregroundColor : UIColor.white,
+			NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17, weight: .semibold)
+		]
+		button.setImage(UIImage(systemName: "chevron.left")?.applyingSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)), for: .normal)
+		button.setAttributedTitle(NSAttributedString(string: "Back", attributes: attributes), for: .normal)
+		button.tintColor = .white
+		button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+		return button
+	}()
+	
 	let newButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
@@ -78,8 +92,11 @@ class StudyModeViewController: UIViewController {
 		view.addSubview(nextButton)
 		view.addSubview(cardView)
 		view.addSubview(newButton)
+		view.addSubview(backButton)
 		
 		NSLayoutConstraint.activate([
+			backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+			backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
 			newButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
 			newButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
 			
@@ -153,5 +170,9 @@ class StudyModeViewController: UIViewController {
 	@objc private func addCardTapped() {
 		let addCardVC = AddCardViewController(nibName: nil, bundle: nil)
 		self.navigationController?.pushViewController(addCardVC, animated: true)
+	}
+	
+	@objc private func backButtonTapped() {
+		navigationController?.popViewController(animated: true)
 	}
 }

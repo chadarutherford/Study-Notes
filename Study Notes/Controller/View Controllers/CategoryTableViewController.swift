@@ -29,6 +29,11 @@ class CategoryTableViewController: UITableViewController {
 		setupTableView()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.isNavigationBarHidden = false
+	}
+	
 	private func setupTableView() {
 		title = "Categories"
 		view.backgroundColor = .systemBackground
