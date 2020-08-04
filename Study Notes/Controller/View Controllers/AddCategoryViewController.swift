@@ -113,5 +113,6 @@ class AddCategoryViewController: UIViewController {
 		guard let title = categoryTextField.text, !title.isEmpty else { return }
 		Category(title: title, notes: [])
 		try! CoreDataStack.shared.save()
+		dismiss(animated: true)
 	}
 }
