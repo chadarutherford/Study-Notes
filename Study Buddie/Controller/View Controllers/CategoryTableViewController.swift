@@ -15,7 +15,7 @@ class CategoryTableViewController: UITableViewController {
 		fetchRequest.sortDescriptors = [
 			NSSortDescriptor(key: "title", ascending: true)
 		]
-		let context = CoreDataStack.shared.mainContext
+		let context = CoreDataCloudKitStack.shared.mainContext
 		let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
 		fetchedResultsController.delegate = self
 		try! fetchedResultsController.performFetch()

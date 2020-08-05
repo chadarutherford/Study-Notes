@@ -112,7 +112,7 @@ class AddCategoryViewController: UIViewController {
 	@objc private func saveButtonTapped() {
 		guard let title = categoryTextField.text, !title.isEmpty else { return }
 		Category(title: title, notes: [])
-		try! CoreDataStack.shared.save()
+		try! CoreDataCloudKitStack.shared.save()
 		dismiss(animated: true)
 	}
 }

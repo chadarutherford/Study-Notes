@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 extension Category {
-	@discardableResult convenience init?(title: String, notes: NSOrderedSet, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+	@discardableResult convenience init?(title: String, notes: NSSet, context: NSManagedObjectContext = CoreDataCloudKitStack.shared.mainContext) {
 		self.init(context: context)
 		self.title = title
 		self.notes = notes
@@ -18,8 +18,8 @@ extension Category {
 
 extension Note {
 	@discardableResult convenience init?(answer: String,
-										 clues: NSOrderedSet,
-										 context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+										 clues: NSSet,
+										 context: NSManagedObjectContext = CoreDataCloudKitStack.shared.mainContext) {
 		self.init(context: context)
 		self.answer = answer
 		self.clues = clues
@@ -28,7 +28,7 @@ extension Note {
 
 extension Clue {
 	@discardableResult convenience init?(text: String,
-										 context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+										 context: NSManagedObjectContext = CoreDataCloudKitStack.shared.mainContext) {
 		self.init(context: context)
 		self.text = text
 	}

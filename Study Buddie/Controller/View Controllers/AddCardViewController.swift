@@ -199,12 +199,12 @@ class AddCardViewController: UIViewController {
 			clues.append(Clue(text: clue5)!)
 		}
 		guard let category = category else { return }
-		let mutableNotes = category.notes?.mutableCopy() as! NSMutableOrderedSet
-		let note = Note(answer: answer, clues: NSOrderedSet(array: clues))!
+		let mutableNotes = category.notes?.mutableCopy() as! NSMutableSet
+		let note = Note(answer: answer, clues: NSSet(array: clues))!
 		mutableNotes.add(note)
-		category.notes = (mutableNotes.copy() as! NSOrderedSet)
+		category.notes = (mutableNotes.copy() as! NSSet)
 		do {
-			try CoreDataStack.shared.save()
+			try CoreDataCloudKitStack.shared.save()
 			navigationController?.popViewController(animated: true)
 		} catch {
 			let ac = UIAlertController(title: "Error", message: "There was an error saving your note card", preferredStyle: .alert)

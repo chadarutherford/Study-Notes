@@ -15,11 +15,12 @@
 		634AA0C024BE2CFC00FDD1A6 /* StudyModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0BF24BE2CFC00FDD1A6 /* StudyModeViewController.swift */; };
 		634AA0C624BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C424BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld */; };
 		634AA0CA24BE305100FDD1A6 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C924BE305100FDD1A6 /* NoteController.swift */; };
-		634AA0CC24BE307C00FDD1A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */; };
+		634AA0CC24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CB24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift */; };
 		634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */; };
 		639BEA9F24D9BC2A00168DC0 /* TextViewPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639BEA9E24D9BC2A00168DC0 /* TextViewPopoverViewController.swift */; };
 		63AA78D524D8F3F4009FD9E9 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA78D424D8F3F4009FD9E9 /* AddCategoryViewController.swift */; };
 		63AA78D724D901ED009FD9E9 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA78D624D901ED009FD9E9 /* EmptyView.swift */; };
+		63B4031924DB619A00E4477B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B4031824DB619A00E4477B /* CloudKit.framework */; };
 		63D3DEE724D8554D002088BC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEE624D8554D002088BC /* CardView.swift */; };
 		63D3DEE924D8A037002088BC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */; };
 		63D3DEEB24D8A21C002088BC /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEEA24D8A21C002088BC /* CategoryCell.swift */; };
@@ -36,11 +37,13 @@
 		634AA0BF24BE2CFC00FDD1A6 /* StudyModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyModeViewController.swift; sourceTree = "<group>"; };
 		634AA0C524BE2D7400FDD1A6 /* StudyNotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudyNotes.xcdatamodel; sourceTree = "<group>"; };
 		634AA0C924BE305100FDD1A6 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
-		634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		634AA0CB24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCloudKitStack.swift; sourceTree = "<group>"; };
 		634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManaged+Convenience.swift"; sourceTree = "<group>"; };
 		639BEA9E24D9BC2A00168DC0 /* TextViewPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPopoverViewController.swift; sourceTree = "<group>"; };
 		63AA78D424D8F3F4009FD9E9 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		63AA78D624D901ED009FD9E9 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		63B4031624DB618900E4477B /* Study Buddie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Study Buddie.entitlements"; sourceTree = "<group>"; };
+		63B4031824DB619A00E4477B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		63D3DEE624D8554D002088BC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		63D3DEEA24D8A21C002088BC /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B4031924DB619A00E4477B /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +66,7 @@
 			children = (
 				634AA0A824BE2C5200FDD1A6 /* Study Buddie */,
 				634AA0A724BE2C5200FDD1A6 /* Products */,
+				63B4031724DB619A00E4477B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +81,7 @@
 		634AA0A824BE2C5200FDD1A6 /* Study Buddie */ = {
 			isa = PBXGroup;
 			children = (
+				63B4031624DB618900E4477B /* Study Buddie.entitlements */,
 				634AA0C324BE2D6100FDD1A6 /* Model */,
 				634AA0C124BE2D5100FDD1A6 /* View */,
 				634AA0BE24BE2CED00FDD1A6 /* Controller */,
@@ -125,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				634AA0C424BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld */,
-				634AA0CB24BE307C00FDD1A6 /* CoreDataStack.swift */,
+				634AA0CB24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift */,
 				634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */,
 			);
 			path = Model;
@@ -149,6 +155,14 @@
 				639BEA9E24D9BC2A00168DC0 /* TextViewPopoverViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		63B4031724DB619A00E4477B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63B4031824DB619A00E4477B /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		63D3DEE524D8553F002088BC /* Custom Views */ = {
@@ -238,7 +252,7 @@
 				634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */,
 				634AA0C624BE2D7400FDD1A6 /* StudyBuddie.xcdatamodeld in Sources */,
 				634AA0AA24BE2C5200FDD1A6 /* AppDelegate.swift in Sources */,
-				634AA0CC24BE307C00FDD1A6 /* CoreDataStack.swift in Sources */,
+				634AA0CC24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift in Sources */,
 				63D3DEE924D8A037002088BC /* CategoryTableViewController.swift in Sources */,
 				63AA78D524D8F3F4009FD9E9 /* AddCategoryViewController.swift in Sources */,
 				634AA0AC24BE2C5200FDD1A6 /* SceneDelegate.swift in Sources */,
@@ -382,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Study Buddie/Study Buddie.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7DFWNNEL3;
 				INFOPLIST_FILE = "Study Buddie/Support/Info.plist";
@@ -401,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Study Buddie/Study Buddie.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7DFWNNEL3;
 				INFOPLIST_FILE = "Study Buddie/Support/Info.plist";

@@ -14,8 +14,8 @@ class CoreDataCloudKitStack {
 	
 	private init() {}
 	
-	lazy var container: NSPersistentContainer = {
-		let container = NSPersistentContainer(name: "StudyBuddie")
+	lazy var container: NSPersistentCloudKitContainer = {
+		let container = NSPersistentCloudKitContainer(name: "StudyBuddie")
 		container.loadPersistentStores { _, error in
 			if let error = error {
 				fatalError("Failed to load persistent stores: \(error.localizedDescription)")

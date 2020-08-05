@@ -121,7 +121,7 @@ class StudyModeViewController: UIViewController {
 			  let title = category.title else { return }
 		let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "category.title == %@", "\(title)")
-		let results = try! CoreDataStack.shared.mainContext.fetch(fetchRequest)
+		let results = try! CoreDataCloudKitStack.shared.mainContext.fetch(fetchRequest)
 		self.results = results
 	}
 	
@@ -146,7 +146,7 @@ class StudyModeViewController: UIViewController {
 		configureUI()
 		cardView.answerLabel.text = results[index].answer
 		cardView.cluesStackView.isHidden = true
-		let clues = results[index].clues?.array as! [Clue]
+		let clues = results[index].clues?.allObjects as! [Clue]
 		for view in cardView.cluesStackView.arrangedSubviews {
 			view.removeFromSuperview()
 		}
