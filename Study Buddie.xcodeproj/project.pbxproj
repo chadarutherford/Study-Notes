@@ -17,11 +17,13 @@
 		634AA0CA24BE305100FDD1A6 /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0C924BE305100FDD1A6 /* NoteController.swift */; };
 		634AA0CC24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CB24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift */; };
 		634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */; };
+		63676DCD24DDAD6C00A437FC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63676DCC24DDAD6C00A437FC /* CardView.swift */; };
+		63676DCF24DDB56400A437FC /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63676DCE24DDB56400A437FC /* Color+Ext.swift */; };
+		63676DD324DDC88B00A437FC /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63676DD224DDC88B00A437FC /* Keychain.swift */; };
 		639BEA9F24D9BC2A00168DC0 /* TextViewPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639BEA9E24D9BC2A00168DC0 /* TextViewPopoverViewController.swift */; };
 		63AA78D524D8F3F4009FD9E9 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA78D424D8F3F4009FD9E9 /* AddCategoryViewController.swift */; };
 		63AA78D724D901ED009FD9E9 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA78D624D901ED009FD9E9 /* EmptyView.swift */; };
 		63B4031924DB619A00E4477B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B4031824DB619A00E4477B /* CloudKit.framework */; };
-		63D3DEE724D8554D002088BC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEE624D8554D002088BC /* CardView.swift */; };
 		63D3DEE924D8A037002088BC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */; };
 		63D3DEEB24D8A21C002088BC /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3DEEA24D8A21C002088BC /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
@@ -39,12 +41,14 @@
 		634AA0C924BE305100FDD1A6 /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		634AA0CB24BE307C00FDD1A6 /* CoreDataCloudKitStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCloudKitStack.swift; sourceTree = "<group>"; };
 		634AA0CD24BE31AE00FDD1A6 /* NSManaged+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManaged+Convenience.swift"; sourceTree = "<group>"; };
+		63676DCC24DDAD6C00A437FC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		63676DCE24DDB56400A437FC /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		63676DD224DDC88B00A437FC /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		639BEA9E24D9BC2A00168DC0 /* TextViewPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewPopoverViewController.swift; sourceTree = "<group>"; };
 		63AA78D424D8F3F4009FD9E9 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		63AA78D624D901ED009FD9E9 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		63B4031624DB618900E4477B /* Study Buddie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Study Buddie.entitlements"; sourceTree = "<group>"; };
 		63B4031824DB619A00E4477B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		63D3DEE624D8554D002088BC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		63D3DEE824D8A037002088BC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		63D3DEEA24D8A21C002088BC /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +97,8 @@
 		634AA0BD24BE2C6B00FDD1A6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				63676DD124DDC86D00A437FC /* Helpers */,
+				63676DD024DDB56A00A437FC /* Extensions */,
 				634AA0A924BE2C5200FDD1A6 /* AppDelegate.swift */,
 				634AA0AB24BE2C5200FDD1A6 /* SceneDelegate.swift */,
 				634AA0B224BE2C5200FDD1A6 /* Assets.xcassets */,
@@ -157,6 +163,22 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		63676DD024DDB56A00A437FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				63676DCE24DDB56400A437FC /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63676DD124DDC86D00A437FC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				63676DD224DDC88B00A437FC /* Keychain.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		63B4031724DB619A00E4477B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,9 +190,9 @@
 		63D3DEE524D8553F002088BC /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				63D3DEE624D8554D002088BC /* CardView.swift */,
 				63D3DEEA24D8A21C002088BC /* CategoryCell.swift */,
 				63AA78D624D901ED009FD9E9 /* EmptyView.swift */,
+				63676DCC24DDAD6C00A437FC /* CardView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -245,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				63061EEC24BF65A10020AF0A /* AddCardViewController.swift in Sources */,
+				63676DCD24DDAD6C00A437FC /* CardView.swift in Sources */,
 				63AA78D724D901ED009FD9E9 /* EmptyView.swift in Sources */,
-				63D3DEE724D8554D002088BC /* CardView.swift in Sources */,
+				63676DCF24DDB56400A437FC /* Color+Ext.swift in Sources */,
+				63676DD324DDC88B00A437FC /* Keychain.swift in Sources */,
 				634AA0C024BE2CFC00FDD1A6 /* StudyModeViewController.swift in Sources */,
 				639BEA9F24D9BC2A00168DC0 /* TextViewPopoverViewController.swift in Sources */,
 				634AA0CE24BE31AE00FDD1A6 /* NSManaged+Convenience.swift in Sources */,
