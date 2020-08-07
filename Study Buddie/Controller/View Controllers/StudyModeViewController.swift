@@ -13,9 +13,9 @@ class StudyModeViewController: UIViewController {
 	let cardView: CardView = {
 		let view = CardView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.backgroundColor = .systemBackground
+		view.backgroundColor = .white
 		view.layer.borderWidth = 2
-		view.layer.borderColor = UIColor.label.cgColor
+		view.layer.borderColor = UIColor.black.cgColor
 		view.layer.cornerRadius = 10
 		view.layer.masksToBounds = true
 		return view
@@ -62,6 +62,7 @@ class StudyModeViewController: UIViewController {
 		return button
 	}()
 	
+	var gradient: GradientView!
 	var showing = true
 	var index = 0
 	var category: Category?
@@ -88,32 +89,33 @@ class StudyModeViewController: UIViewController {
 	}
 	
 	private func configureUI() {
-		let gradient = CAGradientLayer()
-		gradient.frame = view.bounds
-		gradient.colors = [
-			UIColor.systemTeal.cgColor,
-			UIColor.systemBlue.cgColor
-		]
-		view.layer.insertSublayer(gradient, at: 0)
+		gradient = GradientView(frame: view.bounds)
+		gradient.setupGradient(startColor: UIColor.systemTeal, endColor: UIColor.systemBlue, startPoint: .zero, endPoint: CGPoint(x: 0, y: 1.0))
+		view.insertSubview(gradient, at: 0)
 		view.addSubview(nextButton)
 		view.addSubview(cardView)
 		view.addSubview(newButton)
 		view.addSubview(backButton)
 		
 		NSLayoutConstraint.activate([
-			backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+			backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
 			backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
-			newButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+			
+			newButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
 			newButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
 			
-			cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-			cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
-			cardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-			cardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+			cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+			cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
+			cardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 80),
+			cardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -80),
 			
 			nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
 			nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
 		])
+	}
+	
+	override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+		gradient.frame = view.bounds
 	}
 	
 	private func performFetch() {
@@ -150,10 +152,13 @@ class StudyModeViewController: UIViewController {
 		for view in cardView.cluesStackView.arrangedSubviews {
 			view.removeFromSuperview()
 		}
+		let label = UILabel()
+		label.text = ""
+		cardView.cluesStackView.addArrangedSubview(label)
 		for clue in clues {
 			let label = UILabel()
 			label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-			label.textColor = .label
+			label.textColor = .black
 			label.text = "- \(clue.text ?? "")"
 			label.numberOfLines = 0
 			cardView.cluesStackView.addArrangedSubview(label)
@@ -173,12 +178,14 @@ class StudyModeViewController: UIViewController {
 			UIView.transition(with: self.cardView, duration: 1, options: .transitionFlipFromRight, animations: {
 				self.cardView.answerLabel.isHidden = true
 				self.cardView.cluesStackView.isHidden = false
+				self.cardView.isFaceUp = false
 				self.showing = false
 			})
 		} else {
 			UIView.transition(with: self.cardView, duration: 1, options: .transitionFlipFromRight, animations: {
 				self.cardView.answerLabel.isHidden = false
 				self.cardView.cluesStackView.isHidden = true
+				self.cardView.isFaceUp = true
 				self.showing = true
 			})
 		}
