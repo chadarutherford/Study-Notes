@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63061EEC24BF65A10020AF0A /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63061EEB24BF65A10020AF0A /* AddCardViewController.swift */; };
 		6339714C250FF18D00D3DF4F /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6339714B250FF18D00D3DF4F /* UIImage+Ext.swift */; };
+		6339714E250FF7D800D3DF4F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6339714D250FF7D800D3DF4F /* LoginViewController.swift */; };
 		634AA0AA24BE2C5200FDD1A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0A924BE2C5200FDD1A6 /* AppDelegate.swift */; };
 		634AA0AC24BE2C5200FDD1A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634AA0AB24BE2C5200FDD1A6 /* SceneDelegate.swift */; };
 		634AA0B324BE2C5200FDD1A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634AA0B224BE2C5200FDD1A6 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		63061EEB24BF65A10020AF0A /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		6339714B250FF18D00D3DF4F /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		6339714D250FF7D800D3DF4F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		634AA0A624BE2C5200FDD1A6 /* Study Buddie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Buddie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		634AA0A924BE2C5200FDD1A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634AA0AB24BE2C5200FDD1A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				63AA78D424D8F3F4009FD9E9 /* AddCategoryViewController.swift */,
 				639BEA9E24D9BC2A00168DC0 /* TextViewPopoverViewController.swift */,
 				6368FCF2250FE64800C9D0D7 /* ModePickerViewController.swift */,
+				6339714D250FF7D800D3DF4F /* LoginViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6339714E250FF7D800D3DF4F /* LoginViewController.swift in Sources */,
 				6368FCF3250FE64800C9D0D7 /* ModePickerViewController.swift in Sources */,
 				63061EEC24BF65A10020AF0A /* AddCardViewController.swift in Sources */,
 				63676DCD24DDAD6C00A437FC /* CardView.swift in Sources */,
