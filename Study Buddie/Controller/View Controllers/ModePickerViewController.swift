@@ -76,6 +76,8 @@ class ModePickerViewController: UIViewController {
 		return button
 	}()
 	
+	var userInfo: AppleInfoModel?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureUI()

@@ -10,6 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
+	
+	// <span>Photo by <a href="https://unsplash.com/@aaronburden?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Aaron Burden</a> on <a href="https://unsplash.com/s/photos/study?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -19,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = scene as? UIWindowScene else { return }
 		window = UIWindow(windowScene: windowScene)
 		window?.windowScene = windowScene
-		let modeVC = ModePickerViewController(nibName: nil, bundle: nil)
-		window?.rootViewController = modeVC
+		let loginVC = LoginViewController(nibName: nil, bundle: nil)
+		window?.rootViewController = loginVC
 		window?.makeKeyAndVisible()
 	}
 

@@ -11,4 +11,8 @@ extension UIImage {
 	static var back: UIImage {
 		UIImage(systemName: "chevron.left")!
 	}
+	
+	static var study: UIImage {
+		UIImage(named: "study")!
+	}
 }
