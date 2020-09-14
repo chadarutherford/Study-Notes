@@ -62,7 +62,18 @@ class StudyModeViewController: UIViewController {
 		return button
 	}()
 	
-	var gradient: GradientView!
+	let deleteButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		let attributes: [NSAttributedString.Key : Any] = [
+			NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17, weight: .semibold),
+			NSAttributedString.Key.foregroundColor : UIColor.white
+		]
+		button.setAttributedTitle(NSAttributedString(string: "Delete", attributes: attributes), for: .normal)
+		button.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+		return button
+	}()
+	
 	var showing = true
 	var index = 0
 	var category: Category?
@@ -89,13 +100,12 @@ class StudyModeViewController: UIViewController {
 	}
 	
 	private func configureUI() {
-		gradient = GradientView(frame: view.bounds)
-		gradient.setupGradient(startColor: UIColor.systemTeal, endColor: UIColor.systemBlue, startPoint: .zero, endPoint: CGPoint(x: 0, y: 1.0))
-		view.insertSubview(gradient, at: 0)
+		view = GradientView()
 		view.addSubview(nextButton)
 		view.addSubview(cardView)
 		view.addSubview(newButton)
 		view.addSubview(backButton)
+		view.addSubview(deleteButton)
 		
 		NSLayoutConstraint.activate([
 			backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -111,11 +121,10 @@ class StudyModeViewController: UIViewController {
 			
 			nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
 			nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+			
+			deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+			deleteButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
 		])
-	}
-	
-	override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-		gradient.frame = view.bounds
 	}
 	
 	private func performFetch() {
@@ -145,25 +154,36 @@ class StudyModeViewController: UIViewController {
 			}
 			return
 		}
-		configureUI()
-		cardView.answerLabel.text = results[index].answer
-		cardView.cluesStackView.isHidden = true
-		let clues = results[index].clues?.allObjects as! [Clue]
-		for view in cardView.cluesStackView.arrangedSubviews {
-			view.removeFromSuperview()
-		}
-		let label = UILabel()
-		label.text = ""
-		cardView.cluesStackView.addArrangedSubview(label)
-		for clue in clues {
+		if results.count == 0 {
+			cardView.removeFromSuperview()
+			view.addSubview(emptyView)
+			NSLayoutConstraint.activate([
+				emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+				emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
+				emptyView.heightAnchor.constraint(equalToConstant: 160),
+				emptyView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+			])
+		} else {
+			configureUI()
+			cardView.answerLabel.text = results[index].answer
+			cardView.cluesStackView.isHidden = true
+			let clues = results[index].clues?.allObjects as! [Clue]
+			for view in cardView.cluesStackView.arrangedSubviews {
+				view.removeFromSuperview()
+			}
 			let label = UILabel()
-			label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-			label.textColor = .black
-			label.text = "- \(clue.text ?? "")"
-			label.numberOfLines = 0
+			label.text = ""
 			cardView.cluesStackView.addArrangedSubview(label)
+			for clue in clues {
+				let label = UILabel()
+				label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+				label.textColor = .black
+				label.text = clue.text
+				label.numberOfLines = 0
+				cardView.cluesStackView.addArrangedSubview(label)
+			}
+			cardView.setNeedsLayout()
 		}
-		cardView.setNeedsLayout()
 	}
 	
 	private func setupTapGestures() {
@@ -193,6 +213,27 @@ class StudyModeViewController: UIViewController {
 	
 	@objc private func nextButtonTapped() {
 		index += 1
+		updateViews()
+	}
+	
+	@objc private func deleteButtonTapped() {
+		guard let results = results else { return }
+		let result = results[index]
+		let context = CoreDataCloudKitStack.shared.mainContext
+		do {
+			context.delete(result)
+			try context.save()
+		} catch {
+			let alert = UIAlertController(title: "Error", message: "There was an error deleting your card, please try again", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default))
+			present(alert, animated: true)
+		}
+		if index == 0 {
+			index = 0
+		} else {
+			index -= 1
+		}
+		performFetch()
 		updateViews()
 	}
 	
