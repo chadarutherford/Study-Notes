@@ -136,8 +136,10 @@ class LoginViewController: UIViewController {
 	
 	private func presentModeController(userInfo: AppleInfoModel) {
 		let modePickerVC = ModePickerViewController(nibName: nil, bundle: nil)
-		modePickerVC.userInfo = userInfo
-		present(modePickerVC, animated: true)
+		DispatchQueue.main.async {
+			modePickerVC.userInfo = userInfo
+			self.present(modePickerVC, animated: true)
+		}
 	}
 }
 
@@ -171,7 +173,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
  	}
 	
 	func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-		self.showAlert(title: "Sign In Error", message: "There was an error signing you in, please try again")
 	}
 }
 

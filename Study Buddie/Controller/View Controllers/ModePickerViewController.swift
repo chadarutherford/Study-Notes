@@ -21,7 +21,7 @@ class ModePickerViewController: UIViewController {
 	let userText: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "Holly!"
+		label.text = ""
 		label.font = UIFont.systemFont(ofSize: 35, weight: .semibold)
 		return label
 	}()
@@ -76,11 +76,21 @@ class ModePickerViewController: UIViewController {
 		return button
 	}()
 	
-	var userInfo: AppleInfoModel?
+	var userInfo: AppleInfoModel? {
+		didSet {
+			updateViews()
+		}
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureUI()
+		updateViews()
+	}
+	
+	private func updateViews() {
+		guard let userInfo = userInfo, isViewLoaded else { return }
+		userText.text = "\(userInfo.firstName)!"
 	}
 	
 	private func configureUI() {
