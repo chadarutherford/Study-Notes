@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = scene as? UIWindowScene else { return }
 		window = UIWindow(windowScene: windowScene)
 		window?.windowScene = windowScene
-		let categoryVC = CategoryTableViewController(nibName: nil, bundle: nil)
-		window?.rootViewController = UINavigationController(rootViewController: categoryVC)
+		let modeVC = ModePickerViewController(nibName: nil, bundle: nil)
+		window?.rootViewController = modeVC
 		window?.makeKeyAndVisible()
 	}
 

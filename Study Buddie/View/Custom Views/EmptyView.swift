@@ -14,8 +14,9 @@ class EmptyView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.font = UIFont.boldSystemFont(ofSize: 25)
 		label.textColor = .black
+		label.textAlignment = .center
 		label.numberOfLines = 0
-		label.text = "There are no cards in this deck, click the add button to add cards"
+		label.text = "There are no cards in this deck,\nclick the add button to add cards"
 		return label
 	}()
 	

@@ -22,9 +22,6 @@ class CategoryTableViewController: UITableViewController {
 		return fetchedResultsController
 	}()
 	
-	// MARK: - Seed Data - For Testing
-//	let noteController = NoteController()
-	
 	override func viewDidLoad() {
 		setupUI()
 	}
@@ -41,6 +38,7 @@ class CategoryTableViewController: UITableViewController {
 		tableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reuseID)
 		tableView.rowHeight = 70
 		tableView.separatorStyle = .none
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: .back, style: .plain, target: self, action: #selector(backButtonTapped))
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 		navigationController?.navigationBar.tintColor = .label
 	}
@@ -50,6 +48,10 @@ class CategoryTableViewController: UITableViewController {
 		addCategoryVC.modalPresentationStyle = .overCurrentContext
 		addCategoryVC.modalTransitionStyle = .crossDissolve
 		present(addCategoryVC, animated: true)
+	}
+	
+	@objc private func backButtonTapped() {
+		dismiss(animated: true)
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
